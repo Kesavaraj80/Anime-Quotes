@@ -1,12 +1,19 @@
 // Fetching API DATA
 
 async function getdata() {
-    const data = await fetch("https://animechan.vercel.app/api/quotes");
-    const finaldata = await data.json();
-    console.log(finaldata);
-    finaldata.forEach((showdata) => {
-        display(showdata);
-    });
+    try {
+        const data = await fetch("https://animechan.vercel.app/api/quotes");
+        const finaldata = await data.json();
+        console.log(finaldata);
+        finaldata.forEach((showdata) => {
+            display(showdata);
+        });
+        
+    } catch (error) {
+        window.alert("Not Loaded-Try after 1 hour",error)
+        
+    }
+    
 }
   
 function display({ anime, character, quote }) {
